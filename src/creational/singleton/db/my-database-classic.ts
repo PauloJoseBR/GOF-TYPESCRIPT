@@ -1,5 +1,10 @@
+interface User {
+  name: string;
+  age: number;
+}
 export class MyDatabaseClassic {
   private static instance: MyDatabaseClassic | null = null;
+  private users: User[] = [];
 
   // eslint-disable-next-line prettier/prettier
     private constructor() {
@@ -13,9 +18,18 @@ export class MyDatabaseClassic {
 
     return MyDatabaseClassic.instance;
   }
+
+  add(user: User): void {
+    this.users.push(user);
+  }
+
+  remove(index: number): void {
+    this.users.splice(index, 1);
+  }
+
+  show(): void {
+    for (const user of this.users) {
+      console.log(user);
+    }
+  }
 }
-
-const db1 = MyDatabaseClassic.getInstance();
-const db2 = MyDatabaseClassic.getInstance();
-
-console.log(db1 === db2);
