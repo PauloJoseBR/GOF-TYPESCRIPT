@@ -1,3 +1,3 @@
 export interface MealCompositeProtocol {
-    getPrice() : number;
+  getPrice(): number;
 }
