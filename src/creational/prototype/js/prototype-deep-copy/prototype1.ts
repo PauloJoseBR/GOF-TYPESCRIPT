@@ -8,7 +8,7 @@ export class Person implements Prototype {
 
   clone(): Person {
     const newObj = new Person(this.name, this.age);
-    newObj.addresses = [...this.addresses];
+    newObj.addresses = this.addresses.map((item) => item.clone());
     return newObj;
   }
 
@@ -17,8 +17,11 @@ export class Person implements Prototype {
   }
 }
 
-export class Address {
+export class Address implements Prototype {
   constructor(public street: string, public number: number) {}
+  clone(): Address {
+    return new Address(this.street, this.number);
+  }
 }
 
 const address1 = new Address('Av Brasil', 15);
