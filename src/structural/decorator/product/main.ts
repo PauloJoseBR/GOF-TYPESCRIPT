@@ -3,5 +3,11 @@ import { TShirt } from './t-shirt';
 
 const tShirt = new TShirt();
 const decoratedTShirt = new ProductStampDecorator(tShirt);
-console.log(tShirt.getPrice());
-console.log(decoratedTShirt.getPrice());
+const tShirtStampFrontAndBack = new ProductStampDecorator(decoratedTShirt);
+
+console.log(tShirt.getPrice(), tShirt.getName());
+console.log(decoratedTShirt.getPrice(), decoratedTShirt.getName());
+console.log(
+  tShirtStampFrontAndBack.getPrice(),
+  tShirtStampFrontAndBack.getName(),
+);
