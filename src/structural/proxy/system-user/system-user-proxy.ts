@@ -26,6 +26,11 @@ export class SystemUserProxy implements SystemUserProtocol {
 
   async getAddresses(): Promise<SystemUserAdressProtocol[]> {
     this.realUser = this.createUser();
+
+    if (this.realUserAdresses === null) {
+      this.realUserAdresses = await this.realUser.getAddresses();
+    }
+
     return this.realUser?.getAddresses();
   }
 }
