@@ -25,6 +25,6 @@ export class SystemUserProxy implements SystemUserProtocol {
       this.realUserAddresses = await this.realUser.getAddresses();
     }
 
-    return this.realUser?.getAddresses();
+    return this.realUserAddresses;
   }
 }
