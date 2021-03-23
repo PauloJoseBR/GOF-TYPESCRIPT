@@ -1,20 +1,14 @@
 import { AdminUser } from './admin-user';
 import {
-  SystemUserAdressProtocol,
+  SystemUserAddressProtocol,
   SystemUserProtocol,
 } from './system-user-protocol';
 
 export class SystemUserProxy implements SystemUserProtocol {
   private realUser: SystemUserProtocol | null = null;
-  private realUserAdresses: SystemUserAdressProtocol[] | null = null;
+  private realUseraddresses: SystemUserAddressProtocol[] | null = null;
 
-  public firstName: string;
-  public userName: string;
-
-  constructor(firstName: string, userName: string) {
-    this.firstName = firstName;
-    this.userName = userName;
-  }
+  constructor(public firstName: string, public userName: string) {}
 
   private createUser(): SystemUserProtocol {
     if (this.realUser === null) {
@@ -24,11 +18,11 @@ export class SystemUserProxy implements SystemUserProtocol {
     return this.realUser;
   }
 
-  async getAddresses(): Promise<SystemUserAdressProtocol[]> {
+  async getAddresses(): Promise<SystemUserAddressProtocol[]> {
     this.realUser = this.createUser();
 
-    if (this.realUserAdresses === null) {
-      this.realUserAdresses = await this.realUser.getAddresses();
+    if (this.realUseraddresses === null) {
+      this.realUseraddresses = await this.realUser.getAddresses();
     }
 
     return this.realUser?.getAddresses();

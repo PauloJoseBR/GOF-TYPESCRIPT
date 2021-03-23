@@ -1,5 +1,5 @@
 import {
-  SystemUserAdressProtocol,
+  SystemUserAddressProtocol,
   SystemUserProtocol,
 } from './system-user-protocol';
 
@@ -12,7 +12,7 @@ export class AdminUser implements SystemUserProtocol {
     this.userName = userName;
   }
 
-  async getAddresses(): Promise<SystemUserAdressProtocol[]> {
+  async getAddresses(): Promise<SystemUserAddressProtocol[]> {
     return new Promise((resolve) => {
       return setTimeout(() => {
         return resolve([
