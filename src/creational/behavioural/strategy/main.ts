@@ -54,7 +54,6 @@ export class DefaultDiscount extends DiscountStrategy {
   }
 }
 
-
 export class TemporaryDiscount extends DiscountStrategy {
   protected discount = 0;
 
