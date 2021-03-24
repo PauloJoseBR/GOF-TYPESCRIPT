@@ -20,8 +20,6 @@ export class ECommerceShoppingCart {
   }
 
   getTotalWithDiscount(): number {
-    const total = this.getTotal();
-
     return this.discountStrategy.getDiscount(this);
   }
 }
