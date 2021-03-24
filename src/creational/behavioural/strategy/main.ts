@@ -23,8 +23,8 @@ export class ECommerceShoppingCart {
     return this.discountStrategy.getDiscount(this);
   }
 
-  set discount(cart: DiscountStrategy) {
-    this.discountStrategy = this.discount;
+  set discount(discount: DiscountStrategy) {
+    this.discountStrategy = discount;
   }
 }
 
