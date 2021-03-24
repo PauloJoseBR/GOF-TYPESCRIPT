@@ -22,6 +22,10 @@ export class ECommerceShoppingCart {
   getTotalWithDiscount(): number {
     return this.discountStrategy.getDiscount(this);
   }
+
+  set discount(cart: DiscountStrategy) {
+    this.discountStrategy = this.discount;
+  }
 }
 
 export class DiscountStrategy {
@@ -50,7 +54,23 @@ export class DefaultDiscount extends DiscountStrategy {
   }
 }
 
+
+export class TemporaryDiscount extends DiscountStrategy {
+  protected discount = 0;
+
+  getDiscount(cart: ECommerceShoppingCart): number {
+    const total = cart.getTotal();
+
+    if (total >= 150) {
+      this.discount = 5;
+    }
+
+    return total - total * (this.discount / 100);
+  }
+}
+
 const shoppingCart = new ECommerceShoppingCart();
+shoppingCart.discount = new DefaultDiscount();
 shoppingCart.addProduct({ name: 'Produto 1', price: 50 });
 shoppingCart.addProduct({ name: 'Produto 2', price: 50 });
 shoppingCart.addProduct({ name: 'Produto 3', price: 50 });
