@@ -1,6 +1,6 @@
 import { SmartHouseCommand } from './command';
 
-export class SmartHouseAPp {
+export class SmartHouseApp {
   private commands: { [k: string]: SmartHouseCommand } = {};
 
   addCommand(key: string, command: SmartHouseCommand): void {
