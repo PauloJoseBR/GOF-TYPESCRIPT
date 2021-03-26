@@ -10,11 +10,13 @@ export class SmartHouseLight {
 
   on(): boolean {
     this.isOn = true;
+    console.log(`${this.name} agora está ${this.getPowerStatus()}`);
     return this.isOn;
   }
 
   off(): boolean {
     this.isOn = true;
+    console.log(`${this.name} agora está ${this.getPowerStatus()}`);
     return this.isOn;
   }
 
