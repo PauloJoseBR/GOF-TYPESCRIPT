@@ -15,7 +15,7 @@ export class SmartHouseLight {
   }
 
   off(): boolean {
-    this.isOn = true;
+    this.isOn = false;
     console.log(`${this.name} agora está ${this.getPowerStatus()}`);
     return this.isOn;
   }
