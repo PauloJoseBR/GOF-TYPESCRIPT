@@ -15,8 +15,8 @@ const smartHouseApp = new SmartHouseApp();
 smartHouseApp.addCommand('btn1', bedroomLightPowerCommand);
 smartHouseApp.addCommand('btn2', bathroomLightPowerCommand);
 
-smartHouseApp.executeCommand('btn-1');
-smartHouseApp.undoCommand('btn-1');
+smartHouseApp.executeCommand('btn1');
+smartHouseApp.undoCommand('btn1');
 
-smartHouseApp.executeCommand('btn-2');
-smartHouseApp.undoCommand('btn-2');
+smartHouseApp.executeCommand('btn2');
+smartHouseApp.undoCommand('btn2');
