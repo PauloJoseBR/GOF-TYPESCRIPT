@@ -4,9 +4,11 @@ import { SmartHouseLight } from './smart-house-light';
 export class LightIntensityCommand implements SmartHouseCommand {
   constructor(private readonly light: SmartHouseLight) {}
   execute(): void {
-    this.light.increaseIntensity();
+    const intensity = this.light.increaseIntensity();
+    console.log(`Intensidade da luz ${this.light.name} é ${intensity}`);
   }
   undo(): void {
-    this.light.decreaseIntensity();
+    const intensity = this.light.decreaseIntensity();
+    console.log(`Intensidade da luz ${this.light.name} é ${intensity}`);
   }
 }
