@@ -4,12 +4,19 @@ import { SmartHouseLight } from './command/smart-house-light';
 
 // Receiver
 const bedroomLight = new SmartHouseLight('Luz Quarto');
+const bathroomLight = new SmartHouseLight('Luz Banheiro');
 
 // Command
-const lightPowerCommand = new LightPowerCommand(bedroomLight);
-lightPowerCommand.execute();
-lightPowerCommand.undo();
+const bedroomLightPowerCommand = new LightPowerCommand(bedroomLight);
+const bathroomLightPowerCommand = new LightPowerCommand(bathroomLight);
 
 //Controle - Invoker
 const smartHouseApp = new SmartHouseApp();
-smartHouseApp.addCommand('btn1', lightPowerCommand);
+smartHouseApp.addCommand('btn1', bedroomLightPowerCommand);
+smartHouseApp.addCommand('btn2', bathroomLightPowerCommand);
+
+smartHouseApp.executeCommand('btn-1');
+smartHouseApp.undoCommand('btn-1');
+
+smartHouseApp.executeCommand('btn-2');
+smartHouseApp.undoCommand('btn-2');
