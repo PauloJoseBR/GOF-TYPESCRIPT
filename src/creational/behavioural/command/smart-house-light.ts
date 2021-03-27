@@ -21,7 +21,7 @@ export class SmartHouseLight {
   }
 
   increaseIntensity(): number {
-    if (this.intensity > 100) return this.intensity;
+    if (this.intensity >= 100) return this.intensity;
     this.intensity += 1;
     return this.intensity;
   }
