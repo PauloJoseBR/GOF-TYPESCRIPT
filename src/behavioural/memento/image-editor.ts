@@ -12,7 +12,7 @@ export class ImageEditor {
     this.filePath += '.' + format;
   }
 
-  save(): Memento {
+  save(): Readonly<Memento> {
     const date = new Date();
     return new ConcreteMemento(
       date.toISOString(),
