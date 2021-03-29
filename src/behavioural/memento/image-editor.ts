@@ -21,6 +21,12 @@ export class ImageEditor {
       this.fileFormat,
     );
   }
+
+  restore(memento: Memento): void {
+    const concreteMemento = memento as ConcreteMemento;
+    this.filePath = concreteMemento.getFilePath();
+    this.fileFormat = concreteMemento.getFileFormat();
+  }
 }
 
 const img = new ImageEditor('/media/imagem.png', 'png');
