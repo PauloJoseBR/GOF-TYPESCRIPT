@@ -1,7 +1,7 @@
 import { ImageEditor } from './image-editor';
 import { Memento } from './memento';
 
-export class ImageEditorBackupManger {
+export class ImageEditorBackupManager {
   private mementos: Memento[] = [];
   constructor(private readonly imageEditor: ImageEditor) {}
 
