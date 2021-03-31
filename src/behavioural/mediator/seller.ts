@@ -7,7 +7,7 @@ export class Seller {
 
   showProducts(): void {
     this.products.forEach((product) =>
-      console.log(product.id, product.price, product.price),
+      console.log(product.id, product.name, product.price),
     );
   }
 
