@@ -17,3 +17,4 @@ const buyer = new Buyer(mediator);
 buyer.viewProducts();
 buyer.buy('2');
 buyer.buy('3');
+buyer.viewProducts();
