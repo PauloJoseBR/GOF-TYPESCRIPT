@@ -18,4 +18,14 @@ export class Seller {
   setMedidator(mediator: Mediator): void {
     this.mediator = mediator;
   }
+
+  sell(id: string): SellerProduct | void {
+    const productIndex = this.products.findIndex(
+      (product) => product.id === id,
+    );
+
+    if (productIndex === -1) return;
+    const product = this.products.splice(productIndex, 1);
+    return product[0];
+  }
 }
