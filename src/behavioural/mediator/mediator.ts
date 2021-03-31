@@ -16,6 +16,7 @@ export class Mediator {
 
       if (product) {
         console.log('Aqui está', product.id, product.name, product.price);
+        return;
       }
     }
 

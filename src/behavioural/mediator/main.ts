@@ -1,3 +1,4 @@
+import { Buyer } from './buyer';
 import { Mediator } from './mediator';
 import { Seller } from './seller';
 
@@ -11,4 +12,8 @@ seller1.addProduct({ id: '3', name: 'Underwear', price: 15.9 });
 seller1.addProduct({ id: '4', name: 'Watch', price: 25.9 });
 
 mediator.addSeller(seller1, seller2);
-mediator.showProducts();
+
+const buyer = new Buyer(mediator);
+buyer.viewProducts();
+buyer.buy('2');
+buyer.buy('3');
