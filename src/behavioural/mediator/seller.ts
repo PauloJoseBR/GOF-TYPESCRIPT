@@ -20,4 +20,3 @@ export class Seller {
     this.mediator = mediator;
   }
 }
-
