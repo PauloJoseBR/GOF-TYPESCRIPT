@@ -3,7 +3,7 @@ import { CustomerBudget } from './customer-budget';
 
 export class ManagerBudgetHandler extends BaseBudgetHandler {
   handle(budget: CustomerBudget): CustomerBudget {
-    console.log('O manager tratou o orçamento');
+    console.log('O CEO tratou o orçamento');
     budget.approved = true;
     return budget;
   }
