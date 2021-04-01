@@ -2,15 +2,12 @@ import { BaseBudgetHandler } from './base-budget-handler';
 import { CustomerBudget } from './customer-budget';
 
 export class SellerBudgetHandler extends BaseBudgetHandler {
-  protected nextHandler: BaseBudgetHandler | null = null;
-
-  setNextHandler(handler: BaseBudgetHandler): BaseBudgetHandler {
-    this.nextHandler = handler;
-    return handler;
-  }
-
   handle(budget: CustomerBudget): CustomerBudget {
-    if (this.nextHandler) return this.nextHandler.handle(budget);
-    return budget;
+    if (budget.total <= 1000) {
+      console.log('O vendedor tratou o orçamento');
+      budget.approved = true;
+      return budget;
+    }
+    return super.handle(budget);
   }
 }
