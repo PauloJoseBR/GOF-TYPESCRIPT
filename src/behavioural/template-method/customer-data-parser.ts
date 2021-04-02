@@ -9,5 +9,11 @@ export abstract class CustomerDataParser {
     await this.parseDate();
   }
 
+  private fixCpf(): CustomerData[] {
+    return this.customerData.map((customer) => {
+      return { ...customer, cpf: customer.cpf.replace(/\D/g, '') };
+    });
+  }
+
   protected abstract parseDate(): Promise<CustomerData[]>;
 }
