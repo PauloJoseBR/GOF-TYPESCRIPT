@@ -7,6 +7,7 @@ export abstract class CustomerDataParser {
 
   readonly fixCustomerData = async (): Promise<void> => {
     this.customerData = await this.parseDate();
+    this.hook();
     this.customerData = this.fixCpf();
   };
 
@@ -15,6 +16,8 @@ export abstract class CustomerDataParser {
       return { ...customer, cpf: customer.cpf.replace(/\D/g, '') };
     });
   }
+
+  protected hook(): void {}
 
   protected abstract parseDate(): Promise<CustomerData[]>;
 }
