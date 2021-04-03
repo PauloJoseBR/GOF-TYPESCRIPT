@@ -8,7 +8,7 @@ export abstract class CustomerDataParser {
   readonly fixCustomerData = async (): Promise<void> => {
     this.customerData = await this.parseDate();
     this.customerData = this.fixCpf();
-  }
+  };
 
   private fixCpf(): CustomerData[] {
     return this.customerData.map((customer) => {
