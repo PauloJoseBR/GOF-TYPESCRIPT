@@ -9,6 +9,12 @@ async function run() {
   console.log(customerDataParserTXT.customerData);
 
   console.log();
+
+  const filePathJson = resolve(__dirname, 'files', 'customer.json');
+  console.log(filePathJson);
+  const customerDataParserJson = new CustomerDataParserTxt(filePathJson);
+  await customerDataParserJson.fixCustomerData();
+  console.log(customerDataParserJson.customerData);
 }
 
 run();
