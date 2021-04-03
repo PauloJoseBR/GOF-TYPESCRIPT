@@ -5,7 +5,7 @@ export abstract class CustomerDataParser {
 
   constructor(protected filePath: string) {}
 
-  async fixCustomerData(): Promise<void> {
+  readonly fixCustomerData = async (): Promise<void> => {
     this.customerData = await this.parseDate();
     this.customerData = this.fixCpf();
   }
