@@ -19,4 +19,8 @@ export class CustomerDataParserTxt extends CustomerDataParser {
 
     return customerData;
   }
+
+  hook(): void {
+    console.log('O hook foi executado. ');
+  }
 }
