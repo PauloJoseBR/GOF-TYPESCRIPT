@@ -7,6 +7,8 @@ async function run() {
   const customerDataParserTXT = new CustomerDataParserTxt(filePathTXT);
   await customerDataParserTXT.fixCustomerData();
   console.log(customerDataParserTXT.customerData);
+
+  console.log();
 }
 
 run();
