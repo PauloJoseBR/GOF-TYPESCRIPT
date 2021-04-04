@@ -27,6 +27,17 @@ var InputObservable = /** @class */ (function () {
     };
     return InputObservable;
 }());
+var DivObserver = /** @class */ (function () {
+    function DivObserver(element) {
+        this.element = element;
+    }
+    DivObserver.prototype.update = function (observable) {
+        if (observable instanceof InputObservable) {
+            this.element.innerText = observable.input.value;
+        }
+    };
+    return DivObserver;
+}());
 var ParagraphObserver = /** @class */ (function () {
     function ParagraphObserver(element) {
         this.element = element;
@@ -49,10 +60,18 @@ function makeParagraph() {
     p.innerText = 'Text Beginning';
     return p;
 }
+function makeDiv() {
+    var div = document.createElement('div');
+    document.body.appendChild(div);
+    div.innerText = 'Text DIV';
+    return div;
+}
 var input = new InputObservable(makeInput());
 var p1 = new ParagraphObserver(makeParagraph());
 var p2 = new ParagraphObserver(makeParagraph());
-input.subscribe(p1, p2);
+var div1 = new ParagraphObserver(makeDiv());
+input.subscribe(p1, p2, div1);
 input.input.addEventListener('keyup', function () {
     input.notify();
 });
+input.unsubscribe(p2);

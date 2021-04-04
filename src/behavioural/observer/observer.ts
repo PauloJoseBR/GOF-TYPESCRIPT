@@ -34,6 +34,15 @@ class InputObservable implements Observable {
   }
 }
 
+class DivObserver implements Observer {
+  constructor(public element: HTMLDivElement) {}
+  update(observable: Observable): void {
+    if (observable instanceof InputObservable) {
+      this.element.innerText = observable.input.value;
+    }
+  }
+}
+
 class ParagraphObserver implements Observer {
   constructor(public element: HTMLParagraphElement) {}
   update(observable: Observable): void {
@@ -56,11 +65,22 @@ function makeParagraph(): HTMLParagraphElement {
   return p;
 }
 
+function makeDiv(): HTMLParagraphElement {
+  const div = document.createElement('div');
+  document.body.appendChild(div);
+  div.innerText = 'Text DIV';
+  return div;
+}
+
 const input = new InputObservable(makeInput());
 const p1 = new ParagraphObserver(makeParagraph());
 const p2 = new ParagraphObserver(makeParagraph());
-input.subscribe(p1, p2);
+const div1 = new ParagraphObserver(makeDiv());
+
+input.subscribe(p1, p2, div1);
 
 input.input.addEventListener('keyup', function () {
   input.notify();
 });
+
+input.unsubscribe(p2);
