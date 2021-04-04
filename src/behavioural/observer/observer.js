@@ -38,3 +38,9 @@ var ParagraphObserver = /** @class */ (function () {
     };
     return ParagraphObserver;
 }());
+function makeInput() {
+    var input = document.createElement('input');
+    document.body.appendChild(input);
+    return input;
+}
+var input = new InputObservable(makeInput());

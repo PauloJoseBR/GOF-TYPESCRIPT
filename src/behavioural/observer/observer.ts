@@ -42,3 +42,11 @@ class ParagraphObserver implements Observer {
     }
   }
 }
+
+function makeInput(): HTMLInputElement {
+  const input = document.createElement('input');
+  document.body.appendChild(input);
+  return input;
+}
+
+const input = new InputObservable(makeInput());
