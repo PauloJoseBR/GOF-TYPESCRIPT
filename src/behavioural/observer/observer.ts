@@ -75,7 +75,7 @@ function makeDiv(): HTMLParagraphElement {
 const input = new InputObservable(makeInput());
 const p1 = new ParagraphObserver(makeParagraph());
 const p2 = new ParagraphObserver(makeParagraph());
-const div1 = new ParagraphObserver(makeDiv());
+const div1 = new DivObserver(makeDiv());
 
 input.subscribe(p1, p2, div1);
 

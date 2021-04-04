@@ -69,7 +69,7 @@ function makeDiv() {
 var input = new InputObservable(makeInput());
 var p1 = new ParagraphObserver(makeParagraph());
 var p2 = new ParagraphObserver(makeParagraph());
-var div1 = new ParagraphObserver(makeDiv());
+var div1 = new DivObserver(makeDiv());
 input.subscribe(p1, p2, div1);
 input.input.addEventListener('keyup', function () {
     input.notify();
