@@ -51,3 +51,8 @@ function makeParagraph() {
 }
 var input = new InputObservable(makeInput());
 var p1 = new ParagraphObserver(makeParagraph());
+var p2 = new ParagraphObserver(makeParagraph());
+input.subscribe(p1, p2);
+input.input.addEventListener('keyup', function () {
+    input.notify();
+});

@@ -58,3 +58,9 @@ function makeParagraph(): HTMLParagraphElement {
 
 const input = new InputObservable(makeInput());
 const p1 = new ParagraphObserver(makeParagraph());
+const p2 = new ParagraphObserver(makeParagraph());
+input.subscribe(p1, p2);
+
+input.input.addEventListener('keyup', function () {
+  input.notify();
+});
