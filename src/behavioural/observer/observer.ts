@@ -49,4 +49,12 @@ function makeInput(): HTMLInputElement {
   return input;
 }
 
+function makeParagraph(): HTMLParagraphElement {
+  const p = document.createElement('p');
+  document.body.appendChild(p);
+  p.innerText = 'Text Beginning';
+  return p;
+}
+
 const input = new InputObservable(makeInput());
+const p1 = new ParagraphObserver(makeParagraph());

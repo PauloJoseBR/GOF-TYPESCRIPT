@@ -43,4 +43,11 @@ function makeInput() {
     document.body.appendChild(input);
     return input;
 }
+function makeParagraph() {
+    var p = document.createElement('p');
+    document.body.appendChild(p);
+    p.innerText = 'Text Beginning';
+    return p;
+}
 var input = new InputObservable(makeInput());
+var p1 = new ParagraphObserver(makeParagraph());
