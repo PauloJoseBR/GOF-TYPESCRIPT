@@ -11,6 +11,7 @@ console.log('EXECUTED MANY THINGS THEN I USED ITERATOR');
 const [c, ...rest] = dataStructure;
 console.log(c, rest);
 
+dataStructure.resetIterator();
 for (const data of dataStructure) {
   console.log(data);
 }
