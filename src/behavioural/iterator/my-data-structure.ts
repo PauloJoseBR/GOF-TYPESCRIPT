@@ -5,7 +5,7 @@ export class MyDataStructure {
   private _items: string[] = [];
   private iterator: MyIteratorProtocol<string> = new MyDefaultIterator(this);
 
-  addItem(items: string[]): void {
+  addItem(...items: string[]): void {
     items.forEach((item) => this.items.push(item));
   }
 
