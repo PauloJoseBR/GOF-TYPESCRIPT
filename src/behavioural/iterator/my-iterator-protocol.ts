@@ -1,3 +1,3 @@
-export interface MyIteratorProtocol extends Iterator<unknown> {
+export interface MyIteratorProtocol<T> extends Iterator<unknown> {
   reset(): void;
 }
