@@ -1,4 +1,5 @@
 import { AlcholicDrink } from './alcoholic-drink';
+import { BrazilTaxVisitor } from './brazil-tax-visitor';
 import { Cigarette } from './cigarette';
 import { Food } from './food';
 
@@ -8,5 +9,13 @@ const drink = new AlcholicDrink(5);
 
 const cart = [food, cigarette, drink];
 
+const brazilTaxVisitor = new BrazilTaxVisitor();
+
 const total = cart.reduce((sum, item) => item.getPrice() + sum, 0);
+const totalWithTaxes = cart.reduce(
+  (sum, item) => item.getPriceWithTaxes(brazilTaxVisitor) + sum,
+  0,
+);
+
 console.log(total);
+console.log(totalWithTaxes);
