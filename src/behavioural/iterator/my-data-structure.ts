@@ -16,4 +16,8 @@ export class MyDataStructure {
   size(): number {
     return this._items.length;
   }
+
+  changeIterator(iterator: MyIteratorProtocol<string>): void {
+    this.iterator = iterator;
+  }
 }
