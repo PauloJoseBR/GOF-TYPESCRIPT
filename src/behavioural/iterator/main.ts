@@ -1,4 +1,5 @@
 import { MyDataStructure } from './my-data-structure';
+import { MyReverseIterator } from './my-reverse-iterator';
 
 const dataStructure = new MyDataStructure();
 dataStructure.addItem('A', 'B', 'C');
@@ -11,7 +12,8 @@ for (const data of dataStructure) {
   console.log(data);
 }
 
-console.log("I don't have values anymore");
+console.log();
+dataStructure.changeIterator(new MyReverseIterator(dataStructure));
 
 for (const data of dataStructure) {
   console.log(data);
