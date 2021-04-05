@@ -10,7 +10,7 @@ export class MyDataStructure {
   }
 
   get items(): string[] {
-    return this.items;
+    return this._items;
   }
 
   size(): number {
