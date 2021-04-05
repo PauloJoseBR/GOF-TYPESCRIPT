@@ -7,6 +7,9 @@ dataStructure.addItem('A', 'B', 'C');
 const [a, b] = dataStructure;
 
 console.log('STOLEN: ', a, b);
+console.log('EXECUTED MANY THINGS THEN I USED ITERATOR');
+const [c, ...rest] = dataStructure;
+console.log(c, rest);
 
 for (const data of dataStructure) {
   console.log(data);
