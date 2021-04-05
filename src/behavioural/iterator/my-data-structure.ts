@@ -20,4 +20,8 @@ export class MyDataStructure {
   changeIterator(iterator: MyIteratorProtocol<string>): void {
     this.iterator = iterator;
   }
+
+  [Symbol.iterator](): MyIteratorProtocol<string> {
+    return this.iterator;
+  }
 }
